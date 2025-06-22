@@ -1,0 +1,37 @@
+{
+  "name": "expense-manager",
+  "description": "A CLI tool to export data from a .expensemanager file to CSV and/or Google Sheets",
+  "version": "1.0.0",
+  "author": "Pierre Donias <pierre.donias@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdonias/expense-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pdonias/expense-manager/issues"
+  },
+  "keywords": [
+    "expense",
+    "manager",
+    "CLI",
+    "CSV",
+    "Googlesheet",
+    "Drive"
+  ],
+  "main": "index.js",
+  "bin": {
+    "expense-manager": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "homepage": "https://github.com/pdonias/expense-manager#readme",
+  "dependencies": {
+    "commander": "^14.0.0",
+    "dotenv": "^16.5.0",
+    "google-spreadsheet": "^4.1.4",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
