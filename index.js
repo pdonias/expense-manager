@@ -100,7 +100,7 @@ async function main() {
     if (missingVariables.length > 0) {
       throw new Error(
         `Missing environment variable(s): ${missingVariables.join(', ')}.
-Check out how to create a Google Service Account here: https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets#create-a-google-service-account
+Check out how to create a Google Service Account here: https://robocorp.com/docs-robot-framework/development-guide/google-sheets/interacting-with-google-sheets#create-a-google-service-account
 Then provide the required environment variables thanks to the JSON file you downloaded.`
       )
     }
