@@ -5,6 +5,7 @@ const fs = require('fs')
 const pkg = require('./package.json')
 const sqlite3 = require('sqlite3').verbose()
 const { GoogleSpreadsheet } = require('google-spreadsheet')
+const { JWT } = require('google-auth-library')
 const { open } = require('sqlite')
 const { program } = require('commander')
 
@@ -105,11 +106,12 @@ Then provide the required environment variables thanks to the JSON file you down
     }
 
     // Open document
-    const gDoc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID)
-    await gDoc.useServiceAccountAuth({
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY,
+    const jwt = new JWT({
+      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      key: process.env.GOOGLE_PRIVATE_KEY,
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     })
+    const gDoc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, jwt)
     await gDoc.loadInfo()
 
     // Open and edit specified sheet
